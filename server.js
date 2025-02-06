@@ -16,10 +16,9 @@ app.use(express.json());
 const PORT = process.env.PORT || 5000;
 
 // Configuración de la cuenta de servicio
-const keys = require('./credentials.json'); // Archivo JSON de la cuenta de servicio
 const auth = new google.auth.JWT({
-  email: keys.client_email,
-  key: keys.private_key,
+  email: process.env.GOOGLE_CLIENT_EMAIL,
+  key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'), // Escapar saltos de línea
   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
