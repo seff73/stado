@@ -3,5 +3,6 @@
   "rewrites": [{ 
     "source": "/(.*)", 
     "destination": "./server.js" 
-  }] 
+  }],
+  "outputDirectory": "."
 }
