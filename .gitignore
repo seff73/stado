@@ -51,3 +51,7 @@ yarn.lock
 # Ignorar archivos de caché
 .cache/
 .temp/
+credentials.json
+.env
+env
+*.env

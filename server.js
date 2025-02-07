@@ -14,11 +14,14 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
+// const keys = require('./credentials.json');
 
 // Configuración de la cuenta de servicio
 const auth = new google.auth.JWT({
   email: process.env.GOOGLE_CLIENT_EMAIL,
-  key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'), // Escapar saltos de línea
+  // email: keys.client_email,
+  // key: keys.private_key.replace(/\\n/g, '\n'),
+  key: process.env.GOOGLE_PRIVATE_KEY,
   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
@@ -81,5 +84,5 @@ app.post('/api/data/:index', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en Puerto ${PORT}`);
 });
